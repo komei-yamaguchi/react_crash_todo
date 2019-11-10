@@ -11,10 +11,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{js,jsx}'",
+    "lintfix": "eslint --fix './src/**/*.{js,jsx}'"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error", {"singleQuote": true, "semi": false}
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -27,5 +37,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
   }
 }
